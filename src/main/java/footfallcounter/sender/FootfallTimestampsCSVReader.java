@@ -12,18 +12,18 @@ public class FootfallTimestampsCSVReader {
 
         List<DateTime> footfall = new ArrayList<DateTime>();
         String csvSplitBy = " ";
-        String row = "";
 
         try (BufferedReader csvReader = new BufferedReader(new FileReader(csvFilePath))) {
-
-            while ((row = csvReader.readLine()) != null) {
+            String row = csvReader.readLine();
+            while ((row != null) && (!row.equals(""))){
                 String[] data = row.split(csvSplitBy);
                 DateTime temp = new DateTime(data[0], data[1]);
                 footfall.add(temp);
+                row = csvReader.readLine();
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw(e);
         }
         return footfall;
     }

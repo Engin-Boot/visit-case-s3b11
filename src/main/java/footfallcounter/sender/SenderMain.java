@@ -7,15 +7,11 @@ public class SenderMain {
         String csvFilePath = "Database/Dataset.csv";
         try {
             List<DateTime> footfall = FootfallTimestampsCSVReader.readFootfallTimestampsFromCSV(csvFilePath);
-            for (int i=0; i<footfall.size(); i++)
-            {
-                System.out.println("Date " + footfall.get(i).Date + "Time " + footfall.get(i).Time);
-            }
+            //FootfallTimestampsConsoleWriter.writeFootfallTimestampsToConsole(footfall);
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-
     }
 }
