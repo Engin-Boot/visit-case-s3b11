@@ -7,7 +7,7 @@ public class SenderMain {
         String csvFilePath = "Database/Dataset.csv";
         try {
             List<DateTime> footfall = FootfallTimestampsCSVReader.readFootfallTimestampsFromCSV(csvFilePath);
-            //FootfallTimestampsConsoleWriter.writeFootfallTimestampsToConsole(footfall);
+            FootfallTimestampsConsoleWriter.writeFootfallTimestampsToConsole(footfall);
         }
         catch(Exception e)
         {
