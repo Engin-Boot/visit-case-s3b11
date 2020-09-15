@@ -48,7 +48,7 @@ public class FootfallTimestampsConsoleWriterTest {
 
         FootfallTimestampsConsoleWriter.writeFootfallTimestampsToConsole(footfallTimestamps);
 
-        Assert.assertEquals("4/1/2020 21:46\r\n" + "8/2/2020 11:56", systemOutRule.getLog().trim());
+        Assert.assertEquals("4/1/2020 21:46\n" + "8/2/2020 11:56", systemOutRule.getLog().trim());
     }
 
     @Test
