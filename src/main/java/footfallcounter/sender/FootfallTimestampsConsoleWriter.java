@@ -8,6 +8,7 @@ public class FootfallTimestampsConsoleWriter {
         for(DateTime instance : footfall)
         {
             System.out.println(instance.Date + " " + instance.Time);
+            //Thread.sleep(500);
         }
     }
 }
