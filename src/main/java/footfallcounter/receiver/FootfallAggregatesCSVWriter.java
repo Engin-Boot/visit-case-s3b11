@@ -17,28 +17,30 @@ public class FootfallAggregatesCSVWriter {
             FileWriter csvWriter = new FileWriter(new File (filepath));
             csvWriter.append("Average Hourly Footfalls Over a Day, \n");
             csvWriter.append("Date,Avg Footfalls\n");
-            //String [] header3 = {"Peak daily footfall in the last month", ""};
-            //String [] header3a = {"Month", "Peak Footfalls"};
-            for (Map.Entry<String,String> entry : averageFootfallsPerHourOverDay.entrySet())
-            {
-                csvWriter.append(entry.getKey()+","+entry.getValue()+"\n");
-            }
+            writeTreeMapToCSV(averageFootfallsPerHourOverDay, filepath);
             csvWriter.append("Average daily footfalls in a week, \n");
             csvWriter.append("Weeks,Avg Footfalls\n");
-            /*for (Map.Entry<String,String> entry : avgDailyFootfallsInAWeek.entrySet())
+            writeTreeMapToCSV(avgDailyFootfallsInAWeek, filepath);
+            csvWriter.append("Peak daily footfall in the last month, \n");
+            csvWriter.append("Month,Peak Footfalls\n");
+            writeTreeMapToCSV(peakDailyFootfallInTheLastMonth, filepath);
+            //csvWriter.flush();
+            //csvWriter.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void writeTreeMapToCSV(TreeMap<String, String> map, String filepath)
+    {
+        try {
+            FileWriter csvWriter = new FileWriter(new File(filepath), true);
+            for (Map.Entry<String,String> entry : map.entrySet())
             {
                 csvWriter.append(entry.getKey()+","+entry.getValue()+"\n");
             }
-            csvWriter.append("Peak daily footfall in the last month, \n");
-            csvWriter.append("Month,Peak Footfalls\n");
-            for (Map.Entry<String,String> entry : peakDailyFootfallInTheLastMonth.entrySet())
-            {
-                csvWriter.append(entry.getKey()+","+entry.getValue()+"\n");
-            }*/
-            csvWriter.flush();
-            csvWriter.close();
-        }
-        catch (IOException e) {
+        }catch(IOException e)
+        {
             e.printStackTrace();
         }
     }
