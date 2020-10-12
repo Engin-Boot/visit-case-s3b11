@@ -52,7 +52,6 @@ public class AggregatesCalculator {
 
     public static TreeMap<String, String> calculateAverageDailyFootfallsInAWeek(List<DateTime> footfallTimestamps){
         TreeMap<String, Float> averageDailyFootfallsInAWeek = new TreeMap<>();
-        TreeMap<String, String> avgDailyFootfallsInAWeek = new TreeMap<>();
         Map<LocalDate, Integer> dateToCountThatDayMap = calculateDateToCountThatDay(footfallTimestamps);
         for(DateTime instance: footfallTimestamps)
         {
@@ -68,13 +67,7 @@ public class AggregatesCalculator {
                 averageDailyFootfallsInAWeek.put(month + " week" + Integer.toString(week), 1.0f);
             }
         }
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        for (Map.Entry<String,Float> entry : averageDailyFootfallsInAWeek.entrySet())
-        {
-            avgDailyFootfallsInAWeek.put(entry.getKey(), df.format(entry.getValue()/7.0f));
-        }
-        return avgDailyFootfallsInAWeek;
+        return floatToString(averageDailyFootfallsInAWeek);
     }
 
     public static TreeMap<String, String> calculatePeakDailyFootfallInTheLastMonth(List<DateTime> footfallTimestamps){
@@ -106,5 +99,17 @@ public class AggregatesCalculator {
             averageFootfallsPerHourOverDay.put(entry.getKey().toString(), df.format(entry.getValue()/24.0f));
         }
         return averageFootfallsPerHourOverDay;
+    }
+
+    public static TreeMap<String, String> floatToString (TreeMap<String, Float> averageDailyFootfallsInAWeek)
+    {
+        TreeMap<String, String> avgDailyFootfallsInAWeek = new TreeMap<>();
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        for (Map.Entry<String,Float> entry : averageDailyFootfallsInAWeek.entrySet())
+        {
+            avgDailyFootfallsInAWeek.put(entry.getKey(), df.format(entry.getValue()/7.0f));
+        }
+        return avgDailyFootfallsInAWeek;
     }
 }
