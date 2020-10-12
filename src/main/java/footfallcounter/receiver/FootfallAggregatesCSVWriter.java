@@ -25,7 +25,7 @@ public class FootfallAggregatesCSVWriter {
             }
             csvWriter.append("Average daily footfalls in a week, \n");
             csvWriter.append("Weeks,Avg Footfalls\n");
-            for (Map.Entry<String,String> entry : avgDailyFootfallsInAWeek.entrySet())
+            /*for (Map.Entry<String,String> entry : avgDailyFootfallsInAWeek.entrySet())
             {
                 csvWriter.append(entry.getKey()+","+entry.getValue()+"\n");
             }
@@ -34,7 +34,7 @@ public class FootfallAggregatesCSVWriter {
             for (Map.Entry<String,String> entry : peakDailyFootfallInTheLastMonth.entrySet())
             {
                 csvWriter.append(entry.getKey()+","+entry.getValue()+"\n");
-            }
+            }*/
             csvWriter.flush();
             csvWriter.close();
         }
