@@ -23,13 +23,6 @@ public class FootfallTimestampsCSVReaderTest {
     }
 
     @Test
-    public void whenCSVFileIsFoundAndEmptyThenReturnEmptyList() throws IOException
-    {
-        List<DateTime> returnedFootfallTimestamps = FootfallTimestampsCSVReader.readFootfallTimestampsFromCSV("Database/EmptyDataset.csv");
-        assertThat(returnedFootfallTimestamps.isEmpty(), equalTo(true));
-    }
-
-    @Test
     public void whenCSVFileHasValidDataThenReturnListOfFootfallTimestamps() throws IOException
     {
         List<DateTime> expectedFootfallTimestamps = new ArrayList<DateTime>();
