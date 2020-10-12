@@ -15,11 +15,13 @@ public class FootfallTimestampsCSVReader {
 
         try (BufferedReader csvReader = new BufferedReader(new FileReader(csvFilePath))) {
             String row = csvReader.readLine();
-            while ((row != null) && (!row.equals(""))){
+            boolean flag = (row != null) && (!row.equals(""));
+            while (flag){
                 String[] data = row.split(csvSplitBy);
                 DateTime temp = new DateTime(data[0], data[1]);
                 footfall.add(temp);
                 row = csvReader.readLine();
+                flag = (row != null) && (!row.equals(""));
             }
 
         } catch (IOException e) {
