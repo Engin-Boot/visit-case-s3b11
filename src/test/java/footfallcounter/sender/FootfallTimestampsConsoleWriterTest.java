@@ -5,35 +5,11 @@ import org.junit.Test;
 import org.junit.Rule;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
 
 public class FootfallTimestampsConsoleWriterTest {
-    /*@Test(expected = FileNotFoundException.class)
-    public void whenFileNotFoundAtFilePathThenThrowException() throws IOException
-    {
-        FootfallTimestampsCSVReader.readFootfallTimestampsFromCSV("Database/nonexistentfile.csv");
-    }
-
-    @Test
-    public void whenCSVFileIsFoundAndEmptyThenReturnEmptyList() throws IOException
-    {
-        List<DateTime> returnedFootfallTimestamps = FootfallTimestampsCSVReader.readFootfallTimestampsFromCSV("Database/EmptyDataset.csv");
-        assertThat(returnedFootfallTimestamps.isEmpty(), equalTo(true));
-    }*/
-
-    /*@Test(expected = Exception.class)
-    public void whenCSVFileHasDataOfIncorrectFormatThenThrowException() throws IOException
-    {
-        List<DateTime> returnedFootfallTimestamps = FootfallTimestampsCSVReader.readFootfallTimestampsFromCSV("Database/IncorrectDataFormatDataset.csv");
-        assertThat(returnedFootfallTimestamps.isEmpty(), equalTo(true));
-    }*/
-
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
